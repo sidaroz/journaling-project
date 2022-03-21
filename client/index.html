@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/aa6a3be991.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="script.js"></script>
+    <script defer src="submission.js"></script>
+    <title>Factopia</title>
+    <link rel="icon" href="/client/images/logo2.png" />
+  </head>
+  <body>
+    <nav>Home</nav>
+    <main class="main-grid">
+      <img class="logo" src="/client/images/logo2.png" alt="Factopia logo" />
+      <a href="#" class="btn--show-modal"
+        ><i class="fa-solid fa-circle-plus fa-3x add-post"></i
+      ></a>
+      <article class="main kil-background">
+        <div class="flex">
+          <h2>Question name?</h2>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sint
+          et eius aperiam ut facere laboriosam debitis repudiandae quas nesciunt
+          officiis, numquam vel optio beatae enim ipsam id pariatur
+          exercitationem!
+        </p>
+        <div class="response-wholenav">
+          <div>
+            <i class="fa-regular fa-comment fa-2x add-comment"></i>
+          </div>
+          <div>
+            <img
+              class="gif-image"
+              src="/client/images/gif-image2.png"
+              alt="gif logo"
+            />
+          </div>
+          <div class="emojis">
+            <i
+              class="fa-regular fa-face-grin-squint-tears fa-2x face-emoji"
+            ></i>
+            <label for="“fa-face-grin”">0</label>
+            <i class="fa-regular fa-face-dizzy fa-2x face-emoji"></i>
+            <label for="“fa-face-dizzy”">0</label>
+            <i class="fa-regular fa-face-angry fa-2x face-emoji"></i>
+            <label for="“fa-face-angry”">0</label>
+          </div>
+        </div>
+      </article>
+      <section class="comment comment-box">
+        <div class="all-comments">
+          <p class="comment-styling">Comment Section</p>
+        </div>
+        <div class="post-comment">
+          <input
+            type="text"
+            class="comment-text"
+            placeholder="Enter comment here"
+          />
+          <button type="button" class="btn-comment">Post Comment</button>
+        </div>
+      </section>
+
+      <article class="main his-background">
+        <div class="flex">
+          <h2>Question name?</h2>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
+          dicta aspernatur expedita praesentium, beatae repudiandae illo
+          possimus iste assumenda facere molestias sapiente quibusdam vero qui
+          fugit omnis doloremque inventore placeat!
+        </p>
+        <div class="response-wholenav">
+          <div>
+            <i class="fa-regular fa-comment fa-2x add-comment"></i>
+          </div>
+          <div>
+            <img
+              class="gif-image"
+              src="/client/images/gif-image2.png"
+              alt="gif logo"
+            />
+          </div>
+          <div class="emojis">
+            <i
+              class="fa-regular fa-face-grin-squint-tears fa-2x face-emoji"
+            ></i>
+            <label for="“fa-face-grin”">0</label>
+
+            <i class="fa-regular fa-face-dizzy fa-2x face-emoji"></i>
+            <label for="“fa-face-dizzy”">0</label>
+            <i class="fa-regular fa-face-angry fa-2x face-emoji"></i>
+            <label for="“fa-face-angry”">0</label>
+          </div>
+        </div>
+      </article>
+      <!-- <section class="comment">
+        <p>Hey im a comment</p>
+      </section> -->
+    </main>
+
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal__header">Add a new Fact here!</h2>
+      <form class="modal__form">
+        <input
+          type="text"
+          id="fact-question"
+          placeholder="Fact question here (Max length 200 characters)"
+          maxlength="200"
+          required
+        />
+        <br />
+        <textarea
+          name="fact"
+          placeholder="Enter fact here!"
+          id="fact-description"
+          cols="1"
+          rows="5"
+          required
+        ></textarea>
+        <button type="submit" class="btn">Post</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+  </body>
+</html>

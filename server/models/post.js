@@ -19,7 +19,7 @@ class Post {
 
     static createPost(postInfo) {
         const newPostId = postData.length + 1;
-        const date = new Date().toUTCString()
+        const date = new Date().toUTCString();
         const newPost = new Post({ id: newPostId, date: date,  ...postInfo });
         postData.push(newPost);
         return newPost;
