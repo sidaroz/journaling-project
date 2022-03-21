@@ -13,4 +13,15 @@ router.post('/', (req, res) => {
     res.send({message: `${newPost.id} successfully added to our collection.`});
 });
 
+// router.put('/comment/:comment', (req, res) => {
+//     let commentArr = req.params.comment;
+//     console.log(commentArr);
+//     try {
+//         Post.newComment(req, commentArr);
+//         res.status(201).send('Post was successfully updated.');
+//     } catch(e) {
+//         res.status(404).send("ERROR: TRY AGAIN LATER")
+//     }
+// })
+
 module.exports = router;

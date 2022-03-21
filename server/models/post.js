@@ -3,13 +3,13 @@ const postData = require('../data')
 
 class Post {
     constructor(data) {
-        this.id = data.id || "";
+        this.id = data.id;
         this.title = data.title || "";
         this.description = data.description || "";
         this.gif = data.gif || "";
         this.date = data.date;
-        this.reaction = data.reaction || {"like": 0, "dislike": 0, "happy": 0}
-        this.comment = data.comment || []
+        this.reaction = data.reaction || {reaction1: 0, reaction2: 0, reaction3: 0};
+        this.comment = data.comment || [];
     }
 
     static get all() {
@@ -24,6 +24,10 @@ class Post {
         postData.push(newPost);
         return newPost;
     }
+
+    // static newComment(req, commentArr) {
+    //     let matcher = postData.filter(obj => )
+    // }
 }
 
 module.exports = Post;
