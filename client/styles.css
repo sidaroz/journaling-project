@@ -41,6 +41,7 @@ h2 {
   width: 100px;
   height: auto;
   position: absolute;
+  position: fixed;
   left: 10%;
   top: 10%;
 }
@@ -73,6 +74,7 @@ label {
 .add-post {
   height: auto;
   position: absolute;
+  position: fixed;
   right: 13%;
   top: 12%;
   color: white;
@@ -133,8 +135,9 @@ article:nth-child(4n + 3) + .comment-box {
   padding: 10px;
 }
 .post-comment {
-  padding-left: 29%;
+  text-align: center;
   padding-top: 10px;
+  border-top: 1px solid #38444d;
 }
 
 .btn-comment {
@@ -172,6 +175,12 @@ p.comment-styling {
   text-align: center;
   padding-bottom: 5px;
   border-bottom: 1px solid #38444d;
+  font-weight: 700;
+}
+
+.comments-from-data-here {
+  text-align: center;
+  padding: 3px 0;
 }
 /* Hidden Modal */
 .modal {

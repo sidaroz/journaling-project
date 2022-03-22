@@ -69,21 +69,23 @@ function listAllPosts() {
         labelAngryEmoji.textContent = eachFact.reaction.reaction3;
 
         // This is the fact title and description to bring from data to html frontend
-        // Sorts out the overall box layout
+        // Creates the overall box layout we wanted
         mainGrid.appendChild(newSection);
         newSection.append(newDivHeader);
         newDivHeader.append(factHeader);
         newDivHeader.append(dateForPost);
         newSection.append(factDescription);
 
-        // Sorts out the comment in the bottom navbar
+        // Creates the comment in the bottom navbar
         newSection.append(navBar);
         navBar.append(navBarDivSetter1);
         navBar.append(navBarDivSetter2);
         navBarDivSetter1.append(commentIcon);
-        // Sorts the gif in navbar
+
+        // Creates the gif in navbar
         navBarDivSetter2.append(gifImage);
-        // Sorts the emojis in the navbar
+
+        // Creates the emojis in the navbar
         navBar.append(emojiDiv);
         emojiDiv.append(emojiHappy);
         emojiDiv.append(labelHappyEmoji);
@@ -93,13 +95,15 @@ function listAllPosts() {
         emojiDiv.append(emojiAngry);
         emojiDiv.append(labelAngryEmoji);
 
-        // Sorts the commenting under each post
+        // Creates and sorts the commenting under each post
         const sectionToComment = document.createElement("section");
         sectionToComment.setAttribute("class", "comment comment-box");
         const commentsGoHere = document.createElement("div");
         commentsGoHere.setAttribute("class", "all-comments");
         const commentPara = document.createElement("p");
         commentPara.setAttribute("class", "comment-styling");
+        const commentsFromData = document.createElement("p");
+        commentsFromData.setAttribute("class", "comments-from-data-here");
         const postCommentSection = document.createElement("div");
         postCommentSection.setAttribute("class", "post-comment");
         const buttonInput = document.createElement("input");
@@ -114,6 +118,15 @@ function listAllPosts() {
         sectionToComment.append(commentsGoHere);
         commentsGoHere.append(commentPara);
         commentPara.textContent = "Comment Section";
+
+        // To make a new line for every single comment
+        eachFact.comment.forEach((eachComment) => {
+          const lineMaker = document.createElement("p");
+          lineMaker.setAttribute("class", "comments-from-data-here");
+          lineMaker.textContent = eachComment;
+          commentsGoHere.append(lineMaker);
+        });
+
         sectionToComment.append(postCommentSection);
         postCommentSection.append(buttonInput);
         postCommentSection.append(buttonItselfToComment);
@@ -133,128 +146,29 @@ function listAllPosts() {
         }
 
         newSection.addEventListener("click", (e) => openComments(e));
+
+        // Make the emojis change in opacity on hover
+        const handleHover = function (e, opacity) {
+          if (e.target.classList.contains("face-emoji")) {
+            const link = e.target;
+            const siblings = link
+              .closest(".emojis")
+              .querySelectorAll(".face-emoji");
+            const numbers = link.closest(".emojis").querySelectorAll("label");
+            siblings.forEach((el) => {
+              if (el !== link) el.style.opacity = opacity;
+            });
+            numbers.forEach((el) => {
+              if (el !== link) el.style.opacity = opacity;
+            });
+          }
+        };
+
+        newSection.addEventListener("mouseover", (e) => handleHover(e, 0.5));
+
+        newSection.addEventListener("mouseout", (e) => handleHover(e, 1));
       });
     });
 }
 
 listAllPosts();
-
-// const mainGrid = document.querySelector(".main-grid");
-
-// async function postAll() {
-//   try {
-//     const fetchPost = await fetch("http://localhost:3000/");
-//     let jsonArr = await fetchPost.json();
-//     console.log(jsonArr);
-
-//     jsonArr.forEach((obj) => {
-//       createArticle(obj);
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
-// function createArticle(obj) {
-//   const article = document.createElement("article");
-//   article.setAttribute("class", "main");
-//   const div = document.createElement("div");
-//   div.setAttribute("class", "flex");
-//   const h2 = document.createElement("h2");
-//   h2.textContent = `${obj.title}`;
-//   const pArticle = document.createElement("p");
-//   pArticle.textContent = `${obj.description}`;
-//   const h5 = document.createElement("h5");
-//   h5.textContent = `Posted: ${obj.date.slice(5, -7)}`;
-
-//   const iComment = document.createElement("i");
-//   iComment.setAttribute("class", "fa-regular fa-comment fa-2x add-comment");
-//   const iDiv = document.createElement("div");
-//   iDiv.append(iComment);
-
-//   const gifIcon = document.createElement("img");
-//   gifIcon.setAttribute("class", "gif-image");
-//   gifIcon.setAttribute("src", "./images/gif-image2.png");
-//   gifIcon.setAttribute("alt", "gif logo");
-//   const gifDiv = document.createElement("div");
-//   gifDiv.append(gifIcon);
-
-//   const grinI = document.createElement("i");
-//   grinI.setAttribute(
-//     "class",
-//     "fa-regular fa-face-grin-squint-tears fa-2x face-emoji"
-//   );
-//   grinI.setAttribute("style", "opacity: 1;");
-//   const grinLabel = document.createElement("label");
-//   grinLabel.setAttribute("for", "fa-face-grin");
-//   grinLabel.setAttribute("style", "opacity: 1;");
-//   grinLabel.textContent = "0";
-
-//   const dizzyI = document.createElement("i");
-//   dizzyI.setAttribute("class", "fa-regular fa-face-dizzy fa-2x face-emoji");
-//   dizzyI.setAttribute("style", "opacity: 1;");
-//   const dizzyLabel = document.createElement("label");
-//   dizzyLabel.setAttribute("for", "fa-face-dizzy");
-//   dizzyLabel.setAttribute("style", "opacity: 1;");
-//   dizzyLabel.textContent = "0";
-
-//   const angryI = document.createElement("i");
-//   angryI.setAttribute("class", "fa-regular fa-face-angry fa-2x face-emoji");
-//   angryI.setAttribute("style", "opacity: 1;");
-//   const angryLabel = document.createElement("label");
-//   angryLabel.setAttribute("for", "fa-face-angry");
-//   angryLabel.setAttribute("style", "opacity: 1;");
-//   angryLabel.textContent = "0";
-
-//   const emojiDiv = document.createElement("div");
-//   emojiDiv.setAttribute("class", "emojis");
-//   emojiDiv.append(grinI);
-//   emojiDiv.append(grinLabel);
-//   emojiDiv.append(dizzyI);
-//   emojiDiv.append(dizzyLabel);
-//   emojiDiv.append(angryI);
-//   emojiDiv.append(angryLabel);
-
-//   const navDiv = document.createElement("div");
-//   navDiv.setAttribute("class", "response-wholenav");
-//   navDiv.append(iDiv);
-//   navDiv.append(gifDiv);
-//   navDiv.append(emojiDiv);
-
-//   div.append(h2);
-//   article.append(div);
-//   article.append(pArticle);
-//   article.append(h5);
-//   article.append(navDiv);
-
-//   const divOne = document.createElement("div");
-//   divOne.setAttribute("class", "all-comments");
-//   const divOneP = document.createElement("p");
-//   divOneP.setAttribute("class", "comment-styling");
-//   divOneP.textContent = "Comment Section";
-//   divOne.append(divOneP);
-
-//   const divTwo = document.createElement("div");
-//   divTwo.setAttribute("class", "post-comment");
-//   const divTwoInput = document.createElement("input");
-//   divTwoInput.setAttribute("type", "text");
-//   divTwoInput.setAttribute("class", "comment-text");
-//   divTwoInput.setAttribute("placeholder", "Enter comment here");
-//   const divTwoBtn = document.createElement("button");
-//   divTwoBtn.setAttribute("type", "button");
-//   divTwoBtn.setAttribute("class", "btn-comment");
-//   divTwoBtn.textContent = "Post Comment";
-//   divTwo.append(divTwoInput);
-//   divTwo.append(divTwoBtn);
-
-//   const section = document.createElement("section");
-//   section.setAttribute("class", "comment-box");
-//   section.setAttribute("id", `${obj.id}`);
-//   section.append(divOne);
-//   section.append(divTwo);
-
-//   mainGrid.append(article);
-//   mainGrid.append(section);
-// }
-
-// postAll();

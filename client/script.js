@@ -12,6 +12,9 @@ const commentIcon = document.querySelectorAll(".add-comment");
 const emojiNotOpenComment = document.querySelectorAll(".fa-regular");
 const article = document.querySelectorAll("article");
 const gridSection = document.querySelector(".main-grid");
+const logo = document.querySelector(".logo");
+const navigation = document.querySelector("nav");
+
 // Toggles comments on the post
 main.forEach((eachMain) =>
   eachMain.addEventListener("click", function (e) {
@@ -26,24 +29,6 @@ main.forEach((eachMain) =>
     } else eachMain.nextElementSibling.classList.toggle("comment");
   })
 );
-
-gridSection.addEventListener("click", function (e) {
-  if (e.target.classList.contains("main")) {
-    main.forEach((eachMain) =>
-      eachMain.addEventListener("click", function (e) {
-        const clicked = e.target;
-        console.log(clicked);
-        if (
-          clicked.classList.contains("face-emoji") ||
-          clicked.classList.contains("emojis") ||
-          clicked.classList.contains("emoji-numbers")
-        ) {
-          return console.log("Cant open");
-        } else eachMain.nextElementSibling.classList.toggle("comment");
-      })
-    );
-  }
-});
 
 // MAKE a new post
 const openModal = function (e) {
@@ -102,3 +87,10 @@ const addComment = function (e) {
 };
 
 postCommentBtn.addEventListener("click", addComment);
+
+// Make logo scroll to the top
+const logoScrollTop = function () {
+  navigation.scrollIntoView({ behavior: "smooth" });
+};
+
+logo.addEventListener("click", logoScrollTop);
