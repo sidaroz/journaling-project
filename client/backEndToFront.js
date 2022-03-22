@@ -95,7 +95,7 @@ function listAllPosts() {
 
         // Sorts the commenting under each post
         const sectionToComment = document.createElement("section");
-        sectionToComment.setAttribute("class", "comment-box");
+        sectionToComment.setAttribute("class", "comment comment-box");
         const commentsGoHere = document.createElement("div");
         commentsGoHere.setAttribute("class", "all-comments");
         const commentPara = document.createElement("p");
@@ -118,7 +118,21 @@ function listAllPosts() {
         postCommentSection.append(buttonInput);
         postCommentSection.append(buttonItselfToComment);
         buttonItselfToComment.textContent = "Post Comment";
-        // sectionToComment.style.display = "none";
+
+        // Open comments and close comments function
+        function openComments(e) {
+          const clicked = e.target;
+          console.log(clicked);
+          if (
+            clicked.classList.contains("face-emoji") ||
+            clicked.classList.contains("emojis") ||
+            clicked.classList.contains("emoji-numbers")
+          ) {
+            return console.log("Cant open");
+          } else newSection.nextElementSibling.classList.toggle("comment");
+        }
+
+        newSection.addEventListener("click", (e) => openComments(e));
       });
     });
 }
