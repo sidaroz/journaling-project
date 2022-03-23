@@ -11,6 +11,7 @@ function listAllPosts() {
       data.forEach((eachFact) => {
         const newSection = document.createElement("article");
         newSection.setAttribute("class", "main");
+        newSection.setAttribute("id", `${eachFact.id}`);
         const newDivHeader = document.createElement("div");
         newDivHeader.setAttribute("class", "flex");
         const factHeader = document.createElement("h2");
@@ -146,6 +147,32 @@ function listAllPosts() {
         }
 
         newSection.addEventListener("click", (e) => openComments(e));
+
+        // ADDING A COMMENT
+
+        const toAddComment = function () {
+          console.log("clicked");
+
+          if (buttonInput.value.trim().length > 0) {
+            const data = { comment: buttonInput.value.trim() };
+
+            const options = {
+              method: "PUT",
+              body: JSON.stringify(data),
+              headers: { "Content-type": "application/json" },
+            };
+            console.log(eachFact.id);
+            fetch(`http://localhost:3000/comment/${eachFact.id}`, options)
+              .then((data) => {
+                const lineMaker = document.createElement("p");
+                lineMaker.setAttribute("class", "comments-from-data-here");
+                lineMaker.textContent = buttonInput.value;
+                commentsGoHere.append(lineMaker);
+              })
+              .catch((err) => console.log(err));
+          }
+        };
+        buttonItselfToComment.addEventListener("click", toAddComment);
 
         // Make the emojis change in opacity on hover
         const handleHover = function (e, opacity) {

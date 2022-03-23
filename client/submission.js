@@ -6,6 +6,7 @@ const closeAfterSubmit = function () {
   overlay.classList.add("hidden");
 };
 
+// ADDING A POST
 const addPost = function (e) {
   // e.preventDefault();
   const title = document.querySelector("#fact-question");
@@ -37,4 +38,24 @@ const addPost = function (e) {
 
 form.addEventListener("submit", addPost);
 
-// module.exports = { addPost };
+// ADDING A COMMENT
+// const buttonToPostComment = document.querySelector(".btn-comment");
+// const commentThatsAdded = document.querySelector(".comment-text");
+
+// const toAddComment = function (comment, id) {
+//   console.log("clicked");
+//   const commentThatsAdded = document.querySelector(".comment-text");
+//   if (commentThatsAdded.value.trim().length > 0) {
+//     const options = {
+//       method: "PUT",
+//       body: JSON.stringify({ comment: comment }),
+//       headers: { "Content-type": "application/json" },
+//     };
+
+//     fetch(`http://localhost:3000/${id}`, options)
+//       .then(console.log("Posted update comment"))
+//       .catch((err) => console.log(err));
+//     console.log(data);
+//   }
+// };
+// buttonToPostComment.addEventListener("click", toAddComment);

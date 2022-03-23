@@ -28,6 +28,16 @@ class Post {
     return newPost;
   }
 
+  static newComment(postId, commentValue) {
+    postData.forEach((post) => {
+      if (post.id === postId) {
+        console.log(postId);
+        post.comment.push(commentValue);
+        return post;
+      }
+    });
+  }
+
   // static newComment(req, commentArr) {
   //     let matcher = postData.filter(obj => )
   // }

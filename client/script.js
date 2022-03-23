@@ -75,18 +75,18 @@ main.forEach((e) =>
 main.forEach((e) => e.addEventListener("mouseout", (e) => handleHover(e, 1)));
 
 // To add comment
-const addComment = function (e) {
-  const createNewCommentLine = document.createElement("p");
-  commentSection.classList.add("comment-styling");
-  createNewCommentLine.style.textAlign = "centre";
-  createNewCommentLine.textContent = `${commentText.value}`;
-  commentSection.style.textAlign = "center";
-  commentSection.append(createNewCommentLine.textContent);
-  const br = document.createElement("br");
-  commentSection.append(br);
-};
+// const addComment = function (e) {
+//   const createNewCommentLine = document.createElement("p");
+//   commentSection.classList.add("comment-styling");
+//   createNewCommentLine.style.textAlign = "centre";
+//   createNewCommentLine.textContent = `${commentText.value}`;
+//   commentSection.style.textAlign = "center";
+//   commentSection.append(createNewCommentLine.textContent);
+//   const br = document.createElement("br");
+//   commentSection.append(br);
+// };
 
-postCommentBtn.addEventListener("click", addComment);
+// postCommentBtn.addEventListener("click", addComment);
 
 // Make logo scroll to the top
 const logoScrollTop = function () {
