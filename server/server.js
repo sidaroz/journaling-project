@@ -1,15 +1,19 @@
 const express = require("express");
 const cors = require("cors");
 
-const server = express();
-server.use(express.json());
-server.use(cors());
+const app = express();
+app.use(express.json());
+app.use(cors());
 
-const port = 3000;
+// const port = 3000;
 
+
+// Retrieves ALL Posts
 const postRoutes = require("./controllers/postRoute");
-server.use("/", postRoutes);
+app.use("/", postRoutes);
 
-server.listen(port, () =>
-  console.log(`Express departing now from http://localhost:${port}!`)
-);
+// app.listen(port, () =>
+//   console.log(`Express departing now from http://localhost:${port}`)
+// );
+
+module.exports = app;

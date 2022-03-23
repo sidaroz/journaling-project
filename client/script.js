@@ -94,3 +94,35 @@ const logoScrollTop = function () {
 };
 
 logo.addEventListener("click", logoScrollTop);
+
+// Make gif work
+
+// const postGiphyBtn = document.querySelector(".btn-giphy");
+// postGiphyBtn.addEventListener("click", (e) => {
+//   const ApiKey = "dJsOI4IkRGeJqDMBmqytSqfm506r4lrI";
+//   const userInput = document.querySelector(".giphySearch").value.trim();
+//   let url = `https://api.giphy.com/v1/gifs/search?q=${userInput}&api_key=${ApiKey}&limit=10`;
+//   url = url.concat(userInput);
+//   fetch(url)
+//     .then((resp) => resp.json())
+//     .then((content) => {
+//       // console.log(content.data)
+//       // console.log('META', content.meta)
+//       let imgPath =
+//         content.data[Math.floor(Math.random() * 50)].images.fixed_height.url;
+//       console.log(imgPath);
+//       let img = document.createElement("img");
+//       img.setAttribute("src", imgPath);
+//       let out = document.querySelector(".giphyOut");
+
+//       // removes previous gif before inserting new one
+//       out.textContent = "";
+//       out.insertAdjacentElement("afterbegin", img);
+
+//       // Clears searchbar
+//       // document.querySelector(".giphySearch").value = '';
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });

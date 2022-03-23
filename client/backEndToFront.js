@@ -31,7 +31,7 @@ function listAllPosts() {
         );
         const gifImage = document.createElement("img");
         gifImage.setAttribute("class", "gif-image");
-        gifImage.setAttribute("src", "./images/gif-image2.png");
+        gifImage.setAttribute("src", "/client/images/gif-image2.png");
         gifImage.setAttribute("alt", "gif logo");
         const emojiDiv = document.createElement("div");
         emojiDiv.setAttribute("class", "emojis");
@@ -42,7 +42,7 @@ function listAllPosts() {
           "class",
           "fa-regular fa-face-grin-squint-tears fa-2x face-emoji"
         );
-        const labelHappyEmoji = document.createElement("label");
+        let labelHappyEmoji = document.createElement("label");
         labelHappyEmoji.setAttribute("class", "emoji-numbers grin");
         labelHappyEmoji.setAttribute("for", "fa-face-grin");
         labelHappyEmoji.textContent = eachFact.reaction.reaction1;
@@ -53,7 +53,7 @@ function listAllPosts() {
           "class",
           "fa-regular fa-face-dizzy fa-2x face-emoji"
         );
-        const labelDizzyEmoji = document.createElement("label");
+        let labelDizzyEmoji = document.createElement("label");
         labelDizzyEmoji.setAttribute("class", "emoji-numbers dizzy");
         labelDizzyEmoji.setAttribute("for", "fa-face-dizzy");
         labelDizzyEmoji.textContent = eachFact.reaction.reaction2;
@@ -64,7 +64,7 @@ function listAllPosts() {
           "class",
           "fa-regular fa-face-angry fa-2x face-emoji"
         );
-        const labelAngryEmoji = document.createElement("label");
+        let labelAngryEmoji = document.createElement("label");
         labelAngryEmoji.setAttribute("class", "emoji-numbers angry");
         labelAngryEmoji.setAttribute("for", "fa-face-angry");
         labelAngryEmoji.textContent = eachFact.reaction.reaction3;
@@ -122,27 +122,135 @@ function listAllPosts() {
 
         // To make a new line for every single comment
         eachFact.comment.forEach((eachComment) => {
-          const lineMaker = document.createElement("p");
-          lineMaker.setAttribute("class", "comments-from-data-here");
-          lineMaker.textContent = eachComment;
-          commentsGoHere.append(lineMaker);
+          if (eachComment.includes("http")) {
+            const lineForDiv = document.createElement("div");
+            lineForDiv.setAttribute("class", "giphyOut");
+            const imageHolder = document.createElement("img");
+            imageHolder.setAttribute("src", `${eachComment}`);
+            lineForDiv.append(imageHolder);
+            commentsGoHere.append(lineForDiv);
+          } else {
+            const lineMaker = document.createElement("p");
+            lineMaker.setAttribute("class", "comments-from-data-here");
+            lineMaker.append(eachComment);
+            commentsGoHere.append(lineMaker);
+          }
         });
-
         sectionToComment.append(postCommentSection);
         postCommentSection.append(buttonInput);
         postCommentSection.append(buttonItselfToComment);
         buttonItselfToComment.textContent = "Post Comment";
 
+        // To make a GIF search for each article
+        const sectionToGif = document.createElement("section");
+        sectionToGif.setAttribute(
+          "class",
+          "giphy giphy-box comment-box comment"
+        );
+        const divForGifTitle = document.createElement("div");
+        divForGifTitle.setAttribute("class", "all-giphy all-comments");
+        const gifTitlePara = document.createElement("p");
+        gifTitlePara.setAttribute("class", "giphy-styling comment-styling");
+        gifTitlePara.textContent = "Giphy Search";
+        const divSectionToPostGif = document.createElement("div");
+        divSectionToPostGif.setAttribute("class", "post-giphy post-comment");
+        const gifTextInput = document.createElement("input");
+        gifTextInput.setAttribute("type", "text");
+        gifTextInput.setAttribute("class", "comment-text giphySearch");
+        gifTextInput.setAttribute("placeholder", "giphySearch Here");
+        const selectGifBtn = document.createElement("button");
+        selectGifBtn.setAttribute("type", "button");
+        selectGifBtn.setAttribute("class", "btn-comment btn-select-giphy");
+        selectGifBtn.textContent = "Select Gif";
+        const postGifBtn = document.createElement("button");
+        postGifBtn.setAttribute("type", "button");
+        postGifBtn.setAttribute("class", "btn-comment btn-post-giphy");
+        postGifBtn.textContent = "Post Gif";
+        const divSectionForImageGif = document.createElement("div");
+        divSectionForImageGif.setAttribute("class", "giphyOut");
+        mainGrid.append(sectionToGif);
+        sectionToGif.append(divForGifTitle);
+        divForGifTitle.append(gifTitlePara);
+        sectionToGif.append(divSectionToPostGif);
+        divSectionToPostGif.append(gifTextInput);
+        divSectionToPostGif.append(selectGifBtn);
+        divSectionToPostGif.append(postGifBtn);
+        sectionToGif.append(divSectionForImageGif);
+
+        // Open and close gif sections with the icon
+        function openGifs() {
+          sectionToComment.nextElementSibling.classList.toggle("comment");
+        }
+        gifImage.addEventListener("click", openGifs);
+
+        // Search for gif in the section
+        const searchForGif = function () {
+          const ApiKey = "dJsOI4IkRGeJqDMBmqytSqfm506r4lrI";
+          const userInput = gifTextInput.value.trim();
+          let url = `https://api.giphy.com/v1/gifs/search?q=${userInput}&api_key=${ApiKey}&limit=10`;
+          url = url.concat(userInput);
+          fetch(url)
+            .then((resp) => resp.json())
+            .then((content) => {
+              // console.log(content.data)
+              // console.log('META', content.meta)
+              let imgPath =
+                content.data[Math.floor(Math.random() * 50)].images.fixed_height.url;
+              console.log(imgPath);
+              let img = document.createElement("img");
+              img.setAttribute("src", imgPath);
+              let out = divSectionForImageGif;
+
+              // removes previous gif before inserting new one
+              out.textContent = "";
+              out.insertAdjacentElement("afterbegin", img);
+
+              // Clears searchbar
+              // document.querySelector(".giphySearch").value = '';
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        };
+
+        selectGifBtn.addEventListener("click", searchForGif);
+
+        // POST A GIF AFTER ITS SEARCHED
+        const toAddGif = function () {
+          console.log("clicked");
+          const imgSrc = divSectionForImageGif.firstChild.getAttribute("src");
+          console.log(imgSrc);
+          const data = { comment: imgSrc };
+
+          const options = {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: { "Content-type": "application/json" },
+          };
+          fetch(`http://localhost:3000/comment/${eachFact.id}`, options)
+            .then(() => {
+              const lineMaker = document.createElement("div");
+              lineMaker.setAttribute("class", "giphyOut");
+              const imageHolder = document.createElement("img");
+              imageHolder.setAttribute("src", `${imgSrc}`);
+              lineMaker.append(imageHolder);
+              commentsGoHere.append(lineMaker);
+            })
+            .catch((err) => console.log(err));
+        };
+
+        postGifBtn.addEventListener("click", toAddGif);
+
         // Open comments and close comments function
         function openComments(e) {
           const clicked = e.target;
-          console.log(clicked);
           if (
             clicked.classList.contains("face-emoji") ||
             clicked.classList.contains("emojis") ||
-            clicked.classList.contains("emoji-numbers")
+            clicked.classList.contains("emoji-numbers") ||
+            clicked.classList.contains("gif-image")
           ) {
-            return console.log("Cant open");
+            return;
           } else newSection.nextElementSibling.classList.toggle("comment");
         }
 
@@ -161,18 +269,53 @@ function listAllPosts() {
               body: JSON.stringify(data),
               headers: { "Content-type": "application/json" },
             };
-            console.log(eachFact.id);
             fetch(`http://localhost:3000/comment/${eachFact.id}`, options)
-              .then((data) => {
+              .then(() => {
                 const lineMaker = document.createElement("p");
                 lineMaker.setAttribute("class", "comments-from-data-here");
                 lineMaker.textContent = buttonInput.value;
                 commentsGoHere.append(lineMaker);
               })
+              .then(() => (buttonInput.value = ""))
               .catch((err) => console.log(err));
           }
         };
         buttonItselfToComment.addEventListener("click", toAddComment);
+
+        // ADDING A REACTION
+        const addReaction = function (e) {
+          console.log("click the emoji");
+          let emojiFace;
+          let emojiNum = 0;
+          if ((e.target = emojiHappy)) {
+            emojiNum = 1;
+            emojiFace = labelHappyEmoji;
+          } else if ((e.target = emojiDizzy)) {
+            emojiNum = 2;
+            emojiFace = labelDizzyEmoji;
+          } else if ((emojiFace = labelAngryEmoji)) {
+            emojiNum = 3;
+            emojiFace = labelAngryEmoji;
+          }
+          const options = {
+            method: "PUT",
+            body: JSON.stringify({ reaction2: +1 }),
+            headers: { "Content-type": "application/json" },
+          };
+
+          fetch(
+            `http://localhost:3000/reaction/${eachFact.id}/${emojiNum}`,
+            options
+          )
+            .then(() => {
+              emojiFace.textContent++;
+            })
+            .catch((err) => console.log(err));
+        };
+
+        emojiHappy.addEventListener("click", addReaction);
+        emojiDizzy.addEventListener("click", addReaction);
+        emojiAngry.addEventListener("click", addReaction);
 
         // Make the emojis change in opacity on hover
         const handleHover = function (e, opacity) {

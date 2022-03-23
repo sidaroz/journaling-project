@@ -101,8 +101,8 @@ i:hover {
   opacity: 0.7;
 }
 
-.main-grid article:nth-child(4n + 1) {
-  background: #24c253;
+.main-grid article:nth-child(4n + 4) {
+  background: #8f49ff;
   opacity: 80%;
 }
 
@@ -110,8 +110,14 @@ i:hover {
   background: #23a77f;
   opacity: 80%;
 }
+
 .main-grid article:nth-child(4n + 3) {
-  background: #23a77f;
+  background: #4347fc;
+  opacity: 80%;
+}
+
+.main-grid article:nth-child(4n + 1) {
+  background: #3cca67;
   opacity: 80%;
 }
 
@@ -122,17 +128,64 @@ article.main:hover {
 }
 
 article:nth-child(4n + 1) + .comment-box {
-  background: #24c253;
+  background: #3cca67;
+  border: 1px solid transparent;
   padding: 10px;
+  opacity: 80%;
 }
 
 article:nth-child(4n + 2) + .comment-box {
   background: #23a77f;
+  border: 1px solid transparent;
   padding: 10px;
+  opacity: 80%;
 }
 article:nth-child(4n + 3) + .comment-box {
+  border: 1px solid transparent;
+  background: #4347fc;
+  padding: 10px;
+  opacity: 80%;
+}
+article:nth-child(4n + 4) + .comment-box {
+  border: 1px solid transparent;
+  background: #8f49ff;
+  padding: 10px;
+  opacity: 80%;
+}
+section:nth-child(4n + 2) + .giphy-box {
+  border: 1px solid transparent;
+  background: #3cca67;
+  padding: 10px;
+  opacity: 80%;
+}
+
+section:nth-child(4n + 3) + .giphy-box {
+  border: 1px solid transparent;
   background: #23a77f;
   padding: 10px;
+  opacity: 80%;
+}
+section:nth-child(4n + 4) + .giphy-box {
+  border: 1px solid transparent;
+  background: #4347fc;
+  padding: 10px;
+  opacity: 80%;
+}
+section:nth-child(4n + 1) + .giphy-box {
+  border: 1px solid transparent;
+  background: #8f49ff;
+  padding: 10px;
+  opacity: 80%;
+}
+section.giphy-box:hover {
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 0px rgb(33, 33, 33, 0.2);
+  opacity: 100%;
+}
+section.comment-box:hover {
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 0px rgb(33, 33, 33, 0.2);
+  opacity: 100%;
 }
 .post-comment {
   text-align: center;
@@ -181,6 +234,11 @@ p.comment-styling {
 .comments-from-data-here {
   text-align: center;
   padding: 3px 0;
+}
+
+.giphyOut {
+  text-align: center;
+  padding-top: 10px;
 }
 /* Hidden Modal */
 .modal {
