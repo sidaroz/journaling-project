@@ -6,9 +6,9 @@ function listAllPosts() {
   fetch("http://localhost:3000")
     .then((resp) => resp.json())
     .then((data) => {
-      //   const reversedData = data.reverse();
+        const reversedData = data.reverse();
       console.log(data);
-      data.forEach((eachFact) => {
+      reversedData.forEach((eachFact) => {
         const newSection = document.createElement("article");
         newSection.setAttribute("class", "main");
         newSection.setAttribute("id", `${eachFact.id}`);

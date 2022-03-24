@@ -43,7 +43,7 @@ describe('API server', () => {
   //comment test
 
   it ('retrieves a comment by id with status 200', (done) => {
-    request(api).get('/comment/1').expect(200).expect(["Test comment", "Sidar you should panic"], done);
+    request(api).get('/comment/1').expect(200).expect(["Sidar you should panic"], done);
 });
 
     it ('responds to get /comment/200 with status 500', (done) => {
