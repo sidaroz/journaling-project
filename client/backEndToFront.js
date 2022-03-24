@@ -31,7 +31,7 @@ function listAllPosts() {
         );
         const gifImage = document.createElement("img");
         gifImage.setAttribute("class", "gif-image");
-        gifImage.setAttribute("src", "/client/images/gif-image2.png");
+        gifImage.setAttribute("src", "./images/gif-image2.png");
         gifImage.setAttribute("alt", "gif logo");
         const emojiDiv = document.createElement("div");
         emojiDiv.setAttribute("class", "emojis");

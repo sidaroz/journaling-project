@@ -15,7 +15,7 @@ An anonymous fact posting site where anyone can post a fact with a title and des
 ### Remote Hosting
 
 - API is hosted on heroku in {add link}
-- Website is deployed on netlity {add link}
+- Website is deployed on netlify {add link}
 
 ### Usage
 
@@ -42,9 +42,9 @@ An anonymous fact posting site where anyone can post a fact with a title and des
 ### Wins
 
 - Inserting Giphy API into client and being able to respond with gifs as comments.
-  -Being able to push comments into the API from frontend to then pull them back when the webpage is refreshed.
+- Being able to push new data into the API and fetch data back to the client when webpage is refreshed.
 
 ### Challenges
 
-- Had difficulty in the beginning with linking our api to our client website
-- Our emoji counter was only linked to one particular emoji and we didn't know how to
+- Had difficulty in the beginning with linking our api to our client website.
+- Our emoji counter was only linked to one particular emoji and we didn't know how to change counter for all 3 emojis.

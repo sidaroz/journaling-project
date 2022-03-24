@@ -59,7 +59,7 @@ describe('API server', () => {
 
 
     it ('responds to post /comment/8 with status 201', (done) => {
-        request(api).post('/comment/8').send(post).expect("posted comment", done);
+        request(api).post('/comment/8').send(post).expect(201).expect("posted comment", done);
     })
 
 
