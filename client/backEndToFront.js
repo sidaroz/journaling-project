@@ -31,7 +31,7 @@ function listAllPosts() {
         );
         const gifImage = document.createElement("img");
         gifImage.setAttribute("class", "gif-image");
-        gifImage.setAttribute("src", "/client/images/gif-image2.png");
+        gifImage.setAttribute("src", "./images/gif-image2.png");
         gifImage.setAttribute("alt", "gif logo");
         const emojiDiv = document.createElement("div");
         emojiDiv.setAttribute("class", "emojis");
@@ -44,8 +44,8 @@ function listAllPosts() {
         );
         let labelHappyEmoji = document.createElement("label");
         labelHappyEmoji.setAttribute("class", "emoji-numbers grin");
-        labelHappyEmoji.setAttribute("for", "fa-face-grin");
-        labelHappyEmoji.textContent = eachFact.reaction.reaction1;
+        labelHappyEmoji.setAttribute("for", "fa-face-grin-squint-tears");
+        labelHappyEmoji.textContent = eachFact.reaction[0].reaction1;
 
         // Dizzy Emoji
         const emojiDizzy = document.createElement("i");
@@ -56,7 +56,7 @@ function listAllPosts() {
         let labelDizzyEmoji = document.createElement("label");
         labelDizzyEmoji.setAttribute("class", "emoji-numbers dizzy");
         labelDizzyEmoji.setAttribute("for", "fa-face-dizzy");
-        labelDizzyEmoji.textContent = eachFact.reaction.reaction2;
+        labelDizzyEmoji.textContent = eachFact.reaction[1].reaction2;
 
         // Angry Emoji
         const emojiAngry = document.createElement("i");
@@ -67,7 +67,7 @@ function listAllPosts() {
         let labelAngryEmoji = document.createElement("label");
         labelAngryEmoji.setAttribute("class", "emoji-numbers angry");
         labelAngryEmoji.setAttribute("for", "fa-face-angry");
-        labelAngryEmoji.textContent = eachFact.reaction.reaction3;
+        labelAngryEmoji.textContent = eachFact.reaction[2].reaction3;
 
         // This is the fact title and description to bring from data to html frontend
         // Creates the overall box layout we wanted
@@ -145,7 +145,7 @@ function listAllPosts() {
         const sectionToGif = document.createElement("section");
         sectionToGif.setAttribute(
           "class",
-          "giphy giphy-box comment-box comment"
+          "giphy giphy-box comment-box"
         );
         const divForGifTitle = document.createElement("div");
         divForGifTitle.setAttribute("class", "all-giphy all-comments");
@@ -285,30 +285,54 @@ function listAllPosts() {
         // ADDING A REACTION
         const addReaction = function (e) {
           console.log("click the emoji");
+          console.log(e.target.classList)
+          const tokenList = e.target.classList;
           let emojiFace;
-          let emojiNum = 0;
-          if ((e.target = emojiHappy)) {
-            emojiNum = 1;
+          let emotion = 0;
+          let toggler;
+          if (tokenList.contains("fa-face-grin-squint-tears")) {
+            labelHappyEmoji.classList.toggle('selected');
+            if (labelHappyEmoji.classList.contains('selected')){
+              toggler = 1;
+            } else {
+              toggler = 2;
+            };
+            emotion = 'happy';
             emojiFace = labelHappyEmoji;
-          } else if ((e.target = emojiDizzy)) {
-            emojiNum = 2;
+          } else if (tokenList.contains("fa-face-dizzy")) {
+            labelDizzyEmoji.classList.toggle('selected');
+            if (labelDizzyEmoji.classList.contains('selected')){
+              toggler = 1;
+            } else {
+              toggler = 2;
+            };
+            emotion = 'dizzy';
             emojiFace = labelDizzyEmoji;
-          } else if ((emojiFace = labelAngryEmoji)) {
-            emojiNum = 3;
+          } else if (tokenList.contains("fa-face-angry")) {
+            labelAngryEmoji.classList.toggle('selected');
+            if (labelAngryEmoji.classList.contains('selected')){
+              toggler = 1;
+            } else {
+              toggler = 2;
+            };
+            emotion = 'angry';
             emojiFace = labelAngryEmoji;
           }
           const options = {
-            method: "PUT",
-            body: JSON.stringify({ reaction2: +1 }),
+            method: "PATCH",
             headers: { "Content-type": "application/json" },
           };
 
           fetch(
-            `http://localhost:3000/reaction/${eachFact.id}/${emojiNum}`,
+            `http://localhost:3000/${eachFact.id}/${emotion}/${toggler}`,
             options
           )
             .then(() => {
-              emojiFace.textContent++;
+              if (toggler === 1){
+                emojiFace.textContent++;
+              } else if (toggler === 2) {
+                emojiFace.textContent--;
+              }
             })
             .catch((err) => console.log(err));
         };
