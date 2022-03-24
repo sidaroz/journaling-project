@@ -16,13 +16,13 @@
     <link rel="icon" href="./images/logo2.png" />
   </head>
   <body>
-    <nav>Factopia - Home</nav>
+    <nav><span class="highlight">Factopia</span> - Home</nav>
     <main class="main-grid">
       <img class="logo" src="./images/logo2.png" alt="Factopia logo" />
       <a href="#" class="btn--show-modal"
         ><i class="fa-solid fa-circle-plus fa-3x add-post"></i
       ></a>
-      <article class="main">
+      <!-- <article class="main">
         <div class="flex">
           <h2>Question name?</h2>
           <h4>Date</h4>
@@ -83,10 +83,8 @@
           <button type="button" class="btn-giphy">Select Gif</button>
           <button type="button" class="btn-giphy">Post Gif</button>
         </div>
-
         <div class="giphyOut"></div>
       </section>
-
       <article class="main">
         <div class="flex">
           <h2>Question name?</h2>
@@ -113,7 +111,6 @@
               class="fa-regular fa-face-grin-squint-tears fa-2x face-emoji"
             ></i>
             <label class="emoji-numbers grin" for="“fa-face-grin”">0</label>
-
             <i class="fa-regular fa-face-dizzy fa-2x face-emoji"></i>
             <label class="emoji-numbers dizzy" for="“fa-face-dizzy”">0</label>
             <i class="fa-regular fa-face-angry fa-2x face-emoji"></i>
@@ -134,11 +131,11 @@
           <button type="button" class="btn-comment">Post Comment</button>
         </div>
       </section>
-    </main>
+    </main> -->
 
     <div class="modal hidden">
       <button class="btn--close-modal">&times;</button>
-      <h2 class="modal__header">Add a new Fact here!</h2>
+      <h2 class="modal__header">Add a new <span class="highlight">Fact</span> here!</h2>
       <form class="modal__form">
         <input
           type="text"
@@ -156,7 +153,7 @@
           rows="5"
           required
         ></textarea>
-        <button type="submit" class="btn">Post</button>
+        <button type="submit" class="btn">Post &rarr;</button>
       </form>
     </div>
     <div class="overlay hidden"></div>
