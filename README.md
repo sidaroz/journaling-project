@@ -1,6 +1,6 @@
 # Factopia
 
-An anonymous fact posting site where anyone can post a fact with a title and description, as well as reply with comments and gifs and react via emojis to existing posts
+An anonymous fact posting site where anyone can post a fact with a title and description, as well as reply with comments and gifs and react via emojis to existing posts.
 
 ## Installation
 
@@ -20,7 +20,7 @@ An anonymous fact posting site where anyone can post a fact with a title and des
 ### Usage
 
 - Run `npm run dev` to start with nodemon or `npm start` to run with node
-- Run tests with `npm test` and run coverage with `npm run coverage`
+- Run tests with `npm test` and run coverage with `npm run coverage` for each
 
 ## Technologies
 
@@ -47,4 +47,4 @@ An anonymous fact posting site where anyone can post a fact with a title and des
 ### Challenges
 
 - Had difficulty in the beginning with linking our api to our client website.
-- Our emoji counter was only linked to one particular emoji and we didn't know how to change counter for all 3 emojis.
+- Our emoji counter was only linked to one particular emoji and we didn't know how to change counter for all 3 emojis, but we figured out how to sync the
