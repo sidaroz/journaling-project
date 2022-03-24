@@ -20,7 +20,7 @@ An anonymous fact posting site where anyone can post a fact with a title and des
 ### Usage
 
 - Run `npm run dev` to start with nodemon or `npm start` to run with node
-- Run tests with `npm test` and run coverage with `npm run coverage` for each
+- To run client tests, cd into client folder and input `npm test` into terminal. For server tests, cd into server folder and input `npm test` into terminal. For respective coverage reports, input `npm run coverage` in the terminal
 
 ## Technologies
 
@@ -47,4 +47,4 @@ An anonymous fact posting site where anyone can post a fact with a title and des
 ### Challenges
 
 - Had difficulty in the beginning with linking our api to our client website.
-- Our emoji counter was only linked to one particular emoji and we didn't know how to change counter for all 3 emojis, but we figured out how to sync the
+- There was a bug where adding and removing a reaction would update the counter on the webpage, but the api would not register removing the reaction
