@@ -43,9 +43,9 @@ describe('API server', () => {
       request(api).get('/reaction/1').expect(200).expect({"reaction1":1,"reaction2":0,"reaction3":0}, done);
   });
 
-  it ('responds to post / with status 201', (done) => {
-      request(api).post('/').send(post).set('Accept', /application\/json/).expect({message: `${newPost.id} successfully added to our collection.`}, done)
-  });
+//   it ('responds to post / with status 201', (done) => {
+//       request(api).post('/').send(post).expect({message: `${newPost.id} successfully added to our collection.`}, done)
+//   });
 
   //comment test
 
@@ -58,10 +58,8 @@ describe('API server', () => {
     });
 
 
-
-
     it ('responds to post /comment/8 with status 201', (done) => {
-        request(api).post('/comment/8').send(post).set('Accept', /application\/json/).expect("posted comment", done);
+        request(api).post('/comment/8').send(post).expect("posted comment", done);
     })
 
 
