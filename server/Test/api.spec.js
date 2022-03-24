@@ -8,8 +8,8 @@ describe('API server', () => {
         "title": "Here is a fact",
         "description": "Here is some text",
         "date": "Thu, 25 Nov 2021 15:08:51 GMT",
-        reactions: [1, 1, 0],
-        comment: ["Sidar you should not panic"],
+        "reactions": [1, 1, 0],
+        "comment": ["Sidar you should not panic"],
     }
 
     beforeAll(() => {
@@ -56,7 +56,39 @@ describe('API server', () => {
     })
 
     // reaction tests
-    it ('responds to get specific reactions', (done) => {
-        request(api).get('/reaction/1').expect(200).expect({"reaction1":1,"reaction2":0,"reaction3":0}, done);
+    it ('responds to get specific happy reactions', (done) => {
+        request(api).get('/1/happy/1').expect(200).expect({ reaction1: 0}, done);
+    });
+
+    it ('responds to get specific dizzy reactions', (done) => {
+        request(api).get('/1/dizzy/1').expect(200).expect({ reaction2: 0}, done);
+    });
+
+    it ('responds to get specific angry reactions', (done) => {
+        request(api).get('/1/angry/1').expect(200).expect({ reaction3: 0}, done);
+    });
+
+    it ('responds angry reaction increasing by 1', (done) => {
+        request(api).patch('/1/angry/1').expect(201).expect({}, done);
+    });
+
+    it ('responds happy reaction increasing by 1', (done) => {
+        request(api).patch('/1/happy/1').expect(201).expect({}, done);
+    });
+
+    it ('responds dizzy reaction increasing by 1', (done) => {
+        request(api).patch('/1/dizzy/1').expect(201).expect({}, done);
+    });
+
+    it ('responds angry reaction decreasing by 1', (done) => {
+        request(api).patch('/1/angry/2').expect(201).expect({}, done);
+    });
+
+    it ('responds happy reaction decreasing by 1', (done) => {
+        request(api).patch('/1/happy/2').expect(201).expect({}, done);
+    });
+
+    it ('responds dizzy reaction decreasing by 1', (done) => {
+        request(api).patch('/1/dizzy/2').expect(201).expect({}, done);
     });
 })

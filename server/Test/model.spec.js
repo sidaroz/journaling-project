@@ -11,7 +11,7 @@ describe ('Post Model', () => {
         description: "here is a fact",
         date: "Wed, 23 Mar 2022 21:50:29 GMT",
         "gif": "https://giphy.com/gifs/6BMRebCT8GfVmRgzlc",
-        reaction: [{ reaction1: 0}, {reaction2: 0}, {reaction3: 0 }],
+        "reaction": [{ reaction1: 0}, {reaction2: 0}, {reaction3: 0 }],
         "comment": []
 
     }
@@ -24,7 +24,7 @@ describe ('Post Model', () => {
       expect(post.description).toBe("here is a fact")
       expect(post.date).toBe("Wed, 23 Mar 2022 21:50:29 GMT");
       expect(post.gif).toBe("https://giphy.com/gifs/6BMRebCT8GfVmRgzlc")
-      expect(post.reaction).toBe({ reaction1: 0})
+      expect(post.reaction).toEqual([{ reaction1: 0}, {reaction2: 0}, {reaction3: 0 }])
       expect(post.comment).toEqual([])
   })
 

@@ -145,7 +145,7 @@ function listAllPosts() {
         const sectionToGif = document.createElement("section");
         sectionToGif.setAttribute(
           "class",
-          "giphy giphy-box comment-box"
+          "giphy giphy-box comment-box comment"
         );
         const divForGifTitle = document.createElement("div");
         divForGifTitle.setAttribute("class", "all-giphy all-comments");
