@@ -6,7 +6,7 @@ const postData = [
       "The true fruit of the cashew tree is a kidney or boxing-glove shaped drupe that grows at the end of the cashew apple. The drupe develops first on the tree, and then the pedicel expands to become the cashew apple. Within the true fruit is a single seed, the cashew nut",
     date: "Thu, 25 Nov 2021 15:08:51 GMT",
     reaction: [{ reaction1: 0}, {reaction2: 0}, {reaction3: 0 }],
-    comment: ["Test comment", "Sidar you should panic", "idk"],
+    comment: ["Test comment", "Sidar you should panic"],
   },
   {
     id: 2,

@@ -30,18 +30,11 @@ describe('API server', () => {
     request(api).get('/').expect(200, done);
   });
 
-  it ('responds to get /comments/:id with status 200', (done) => {
-      request(api).get('/comments/1').expect(200, done);
-  });
+
 
   it ('responds to non-existent paths with 404', (done) => {
     request(api).get('/no').expect(404, done);
   })
-
-
-  it ('responds to get specific reactions', (done) => {
-      request(api).get('/reaction/1').expect(200).expect({"reaction1":1,"reaction2":0,"reaction3":0}, done);
-  });
 
 //   it ('responds to post / with status 201', (done) => {
 //       request(api).post('/').send(post).expect(201).expect("message:2 successfully added to our collection., done")
@@ -50,7 +43,7 @@ describe('API server', () => {
   //comment test
 
   it ('retrieves a comment by id with status 200', (done) => {
-    request(api).get('/comment/1').expect(200).expect(["Test comment", "Sidar you should panic", "idk"], done);
+    request(api).get('/comment/1').expect(200).expect(["Test comment", "Sidar you should panic"], done);
 });
 
     it ('responds to get /comment/200 with status 500', (done) => {
@@ -61,4 +54,9 @@ describe('API server', () => {
     it ('responds to put /comment/7 with status 201', (done) => {
         request(api).put('/comment/7').send("posted comment").expect(201, done)
     })
+
+    // // reaction tests
+    // it ('responds to get specific reactions', (done) => {
+    //     request(api).get('/reaction/1').expect(200).expect({"reaction1":1,"reaction2":0,"reaction3":0}, done);
+    // });
 })
