@@ -48,4 +48,9 @@ it ('should create a post', () => {
     expect(newPost).toEqual({...testPost})
 })
 
+//  it ('should create a comment', () => {
+//      const bNewComment = PostWithComment.newComment(testPost)
+//      expect().toBe()
+//      expect(bNewComment).toBe(commentValue)
+//  })
 }) 
