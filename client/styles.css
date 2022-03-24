@@ -383,3 +383,20 @@ span.highlight::after {
   visibility: hidden;
   opacity: 0;
 }
+
+@media only screen and (max-width: 800px) {
+  .logo {
+    left: 6%;
+  }
+  .add-post {
+    right: 10%;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .logo {
+    left: 2%;
+  }
+  .add-post {
+    right: 7%;
+  }
+}
