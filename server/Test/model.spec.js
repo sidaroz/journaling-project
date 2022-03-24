@@ -10,6 +10,7 @@ describe ('Post Model', () => {
         title: "What animals can not walk backwards?",
         description: "here is a fact",
         date: "Wed, 23 Mar 2022 21:50:29 GMT",
+        "gif": "",
         "reaction": {
         "reaction1": 0,
         "reaction2": 0,
@@ -18,20 +19,33 @@ describe ('Post Model', () => {
         "comment": []
 
     }
-//   // Posts test
-//   it ('should make an instance of a post', () => {
-//       const post = new Postwithcomment.Post({...testPost});
+  // Posts test
+  it ('should make an instance of a post', () => {
+      const post = new PostWithComment({...testPost});
 
-//       expect(post.id).toBe(9);
-//       expect(post.title).toBe("What animals can not walk backwards?");
-//       expect(post.description).toBe("here is a fact")
-//       expect(post.date).toBe("Wed, 23 Mar 2022 21:50:29 GMT");
-//       expect(post.comment)toBe([])
-//   })
+      expect(post.id).toBe(9);
+      expect(post.title).toBe("What animals can not walk backwards?");
+      expect(post.description).toBe("here is a fact")
+      expect(post.date).toBe("Wed, 23 Mar 2022 21:50:29 GMT");
+      expect(post.gif).toBe("")
+      expect(post.reaction).toEqual({
+        "reaction1": 0,
+        "reaction2": 0,
+        "reaction3": 0
+        })
+      expect(post.comment).toEqual([])
+  })
+
+
 
 it ('should return all posts', () => {
-    const posts = PostWithComment.Post.all;
-    expect(posts).toEqual(postData.posts.posts);
+    const posts = PostWithComment.all;
+    expect(posts.posts).toEqual(postData.posts);
 });
+
+it ('should create a post', () => {
+    const newPost = PostWithComment.createPost(testPost);
+    expect(newPost).toEqual({...testPost})
+})
 
 }) 
