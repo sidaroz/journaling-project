@@ -15,7 +15,7 @@ An anonymous fact posting site where anyone can post a fact with a title and des
 ### Remote Hosting
 
 - API is hosted on heroku in https://factopia-api.herokuapp.com/
-- Website is deployed on netlify https://factopia.netlify.app
+- Website is deployed on netlify in https://factopia.netlify.app
 
 ### Usage
 
@@ -43,8 +43,9 @@ An anonymous fact posting site where anyone can post a fact with a title and des
 
 - Inserting Giphy API into client and being able to respond with gifs as comments.
 - Being able to push new data into the API and fetch data back to the client when webpage is refreshed.
+- Deploying out front-end to netlify and backend to heroku
 
 ### Challenges
 
 - Had difficulty in the beginning with linking our api to our client website.
-- There was a bug where adding and removing a reaction would update the counter on the webpage, but the api would not register removing the reaction
+- There was a bug where adding and removing a reaction would update the counter on the webpage, but the api would not register removing the reaction. This was eventually fixed and we had it working as we originally planned.
