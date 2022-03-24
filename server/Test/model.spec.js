@@ -10,7 +10,7 @@ describe ('Post Model', () => {
         title: "What animals can not walk backwards?",
         description: "here is a fact",
         date: "Wed, 23 Mar 2022 21:50:29 GMT",
-        "gif": "",
+        "gif": "https://giphy.com/gifs/6BMRebCT8GfVmRgzlc",
         "reaction": {
         "reaction1": 0,
         "reaction2": 0,
@@ -27,7 +27,7 @@ describe ('Post Model', () => {
       expect(post.title).toBe("What animals can not walk backwards?");
       expect(post.description).toBe("here is a fact")
       expect(post.date).toBe("Wed, 23 Mar 2022 21:50:29 GMT");
-      expect(post.gif).toBe("")
+      expect(post.gif).toBe("https://giphy.com/gifs/6BMRebCT8GfVmRgzlc")
       expect(post.reaction).toEqual({
         "reaction1": 0,
         "reaction2": 0,

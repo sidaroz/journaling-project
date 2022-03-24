@@ -7,11 +7,7 @@ class Post {
     this.description = data.description || "";
     this.gif = data.gif || "";
     this.date = data.date;
-    this.reaction = data.reaction || {
-      reaction1: 0,
-      reaction2: 0,
-      reaction3: 0,
-    };
+    this.reaction = data.reaction ||{reaction1: 0,reaction2: 0,reaction3: 0,};
     this.comment = data.comment || [];
   }
 
