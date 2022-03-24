@@ -55,8 +55,8 @@ describe('API server', () => {
         request(api).put('/comment/7').send("posted comment").expect(201, done)
     })
 
-    // // reaction tests
-    // it ('responds to get specific reactions', (done) => {
-    //     request(api).get('/reaction/1').expect(200).expect({"reaction1":1,"reaction2":0,"reaction3":0}, done);
-    // });
+    // reaction tests
+    it ('responds to get specific reactions', (done) => {
+        request(api).get('/reaction/1').expect(200).expect({"reaction1":1,"reaction2":0,"reaction3":0}, done);
+    });
 })
