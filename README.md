@@ -14,8 +14,8 @@ An anonymous fact posting site where anyone can post a fact with a title and des
 
 ### Remote Hosting
 
-- API is hosted on heroku in {add link}
-- Website is deployed on netlify {add link}
+- API is hosted on heroku in https://factopia-api.herokuapp.com/
+- Website is deployed on netlify https://factopia.netlify.app
 
 ### Usage
 
