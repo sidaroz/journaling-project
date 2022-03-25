@@ -83,19 +83,6 @@ router.patch("/:id/:reaction/:toggler", (req, res) => {
   }
 });
 
-// router.get("/:reaction/:id/1", (req, res) => {
-//   const idCounterIsWrong = req.params.id - 1;
-//   const specificPost = Post.all[idCounterIsWrong].reaction;
-//   console.log(specificPost.reaction1++);
-//   // console.log(Post.all[idCounterIsWrong]);
-//   res.status(200).send(specificPost.reaction1 + 1);
-// });
-// router.get("/:reaction/:id/", (req, res) => {
-//   const idCounterIsWrong = req.params.id - 1;
-//   const specificPost = Post.all[idCounterIsWrong].reaction;
-//   // console.log(Post.all[idCounterIsWrong]);
-//   res.status(200).send(specificPost);
-// });
 
 router.put("/comment/:id", (req, res) => {
   const idCounterIsWrong = req.params.id - 1;
@@ -124,40 +111,6 @@ router.put("/comment/:id", (req, res) => {
   }
 });
 
-// router.put("/:reaction/:id/1", (req, res) => {
-//   const idCounterIsWrong = req.params.id - 1;
-//   const newCommentId = Post.all[idCounterIsWrong].id;
-//   console.log(req.body);
-//   Post.newReactionHappy(newCommentId);
-//   try {
-//     res.status(201).send("Sent Reaction");
-//   } catch (e) {
-//     res.status(404).send("ERROR: TRY AGAIN LATER");
-//   }
-// });
-
-// router.put("/:reaction/:id/2", (req, res) => {
-//   const idCounterIsWrong = req.params.id - 1;
-//   const newCommentId = Post.all[idCounterIsWrong].id;
-//   console.log(req.body);
-//   Post.newReactionDizzy(newCommentId);
-//   try {
-//     res.status(201).send("Sent Reaction");
-//   } catch (e) {
-//     res.status(404).send("ERROR: TRY AGAIN LATER");
-//   }
-// });
-
-// router.put("/:reaction/:id/3", (req, res) => {
-//   const idCounterIsWrong = req.params.id - 1;
-//   const newCommentId = Post.all[idCounterIsWrong].id;
-//   console.log(req.body);
-//   Post.newReactionAngry(newCommentId);
-//   try {
-//     res.status(201).send("Sent Reaction");
-//   } catch (e) {
-//     res.status(404).send("ERROR: TRY AGAIN LATER");
-//   }
-// });
 
 module.exports = router;
+

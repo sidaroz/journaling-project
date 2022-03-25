@@ -3,12 +3,12 @@
 const mainGrid = document.querySelector(".main-grid");
 
 function listAllPosts() {
-  fetch("http://localhost:3000")
+  fetch("https://factopia-api.herokuapp.com/")
     .then((resp) => resp.json())
     .then((data) => {
-      //   const reversedData = data.reverse();
+        const reversedData = data.reverse();
       console.log(data);
-      data.forEach((eachFact) => {
+      reversedData.forEach((eachFact) => {
         const newSection = document.createElement("article");
         newSection.setAttribute("class", "main");
         newSection.setAttribute("id", `${eachFact.id}`);
@@ -227,7 +227,7 @@ function listAllPosts() {
             body: JSON.stringify(data),
             headers: { "Content-type": "application/json" },
           };
-          fetch(`http://localhost:3000/comment/${eachFact.id}`, options)
+          fetch(`https://factopia-api.herokuapp.com/comment/${eachFact.id}`, options)
             .then(() => {
               const lineMaker = document.createElement("div");
               lineMaker.setAttribute("class", "giphyOut");
@@ -269,7 +269,7 @@ function listAllPosts() {
               body: JSON.stringify(data),
               headers: { "Content-type": "application/json" },
             };
-            fetch(`http://localhost:3000/comment/${eachFact.id}`, options)
+            fetch(`https://factopia-api.herokuapp.com/comment/${eachFact.id}`, options)
               .then(() => {
                 const lineMaker = document.createElement("p");
                 lineMaker.setAttribute("class", "comments-from-data-here");
@@ -324,7 +324,9 @@ function listAllPosts() {
           };
 
           fetch(
-            `http://localhost:3000/${eachFact.id}/${emotion}/${toggler}`,
+
+           `https://factopia-api.herokuapp.com/${eachFact.id}/${emotion}/${toggler}`,
+
             options
           )
             .then(() => {
@@ -366,3 +368,5 @@ function listAllPosts() {
 }
 
 listAllPosts();
+
+module.exports = {listAllPosts}
