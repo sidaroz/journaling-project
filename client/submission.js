@@ -23,7 +23,7 @@ const addPost = function (e) {
       headers: { "Content-type": "application/json" },
     };
 
-    fetch("http://localhost:3000/", options)
+    fetch("https://factopia-api.herokuapp.com/", options)
       // .then((resp) => resp.json)
       // .then ((data) => console.log(data))
       .then(console.log("Posted post"))
@@ -38,24 +38,4 @@ const addPost = function (e) {
 
 form.addEventListener("submit", addPost);
 
-// ADDING A COMMENT
-// const buttonToPostComment = document.querySelector(".btn-comment");
-// const commentThatsAdded = document.querySelector(".comment-text");
 
-// const toAddComment = function (comment, id) {
-//   console.log("clicked");
-//   const commentThatsAdded = document.querySelector(".comment-text");
-//   if (commentThatsAdded.value.trim().length > 0) {
-//     const options = {
-//       method: "PUT",
-//       body: JSON.stringify({ comment: comment }),
-//       headers: { "Content-type": "application/json" },
-//     };
-
-//     fetch(`http://localhost:3000/${id}`, options)
-//       .then(console.log("Posted update comment"))
-//       .catch((err) => console.log(err));
-//     console.log(data);
-//   }
-// };
-// buttonToPostComment.addEventListener("click", toAddComment);
