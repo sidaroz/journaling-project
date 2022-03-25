@@ -16,6 +16,7 @@
     "coverage": "^0.4.1",
     "express": "^4.17.3",
     "jest": "^27.5.1",
+    "jest-fetch-mock": "^3.0.3",
     "supertest": "^6.2.2",
     "watchify": "^4.0.0"
   }

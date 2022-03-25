@@ -366,3 +366,5 @@ function listAllPosts() {
 }
 
 listAllPosts();
+
+module.exports = {listAllPosts}
