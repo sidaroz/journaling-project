@@ -145,7 +145,7 @@ function listAllPosts() {
         const sectionToGif = document.createElement("section");
         sectionToGif.setAttribute(
           "class",
-          "giphy giphy-box comment-box comment"
+          "giphy giphy-box comment-box"
         );
         const divForGifTitle = document.createElement("div");
         divForGifTitle.setAttribute("class", "all-giphy all-comments");
@@ -324,7 +324,9 @@ function listAllPosts() {
           };
 
           fetch(
-            `https://factopia-api.herokuapp.com/${eachFact.id}/${emotion}/${toggler}`,
+
+           `https://factopia-api.herokuapp.com/${eachFact.id}/${emotion}/${toggler}`,
+
             options
           )
             .then(() => {
