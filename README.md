@@ -2,6 +2,10 @@
 
 An anonymous fact posting site where anyone can post a fact with a title and description, as well as reply with comments and gifs and react via emojis to existing posts.
 
+## Webpage
+
+![landing-page](landing-page.gif)
+
 ## Installation
 
 ### Local Hosting
@@ -56,7 +60,3 @@ An anonymous fact posting site where anyone can post a fact with a title and des
 - A sort feature so people can sort through facts by most liked fact or most disliked fact.
 - Gif functionality when creating a post so gifs can appear in a post.
 - A searchbar were specific facts can be found by the input e.g Searching for 'fish' gathers all facts with 'fish' in the title
-
-## Webpage
-
-![landing-page](landing-page.gif)
