@@ -6,6 +6,13 @@ An anonymous fact posting site where anyone can post a fact with a title and des
 
 ![landing-page](landing-page.gif)
 
+## Contributors
+
+- Sidar
+- Ikenna
+- Luiz
+- Sarushan
+
 ## Installation
 
 ### Local Hosting
