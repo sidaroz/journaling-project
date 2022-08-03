@@ -2,7 +2,7 @@
 
 An anonymous fact posting site where anyone can post a fact with a title and description, as well as reply with comments and gifs and react via emojis to existing posts.
 
-## Webpage
+## Demo
 
 ![landing-page](landing-page.gif)
 
